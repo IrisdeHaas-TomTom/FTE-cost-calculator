@@ -1,14 +1,92 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>My Web App</title>
-    <style>
-      body { font-family: Arial; margin: 40px; }
-      h1 { color: #4a69bd; }
-    </style>
-  </head>
-  <body>
-    <h1>This is first web app POC of the cost calculator </h1>
-    <p>Welcome!</p>
-  </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Compensation Decision Tool</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- DISCLAIMER -->
+    <div class="disclaimer">
+        All values presented are based on dummy data for testing purposes.
+    </div>
+
+    <div class="container">
+        <!-- LEFT SIDE: INPUT -->
+        <div class="left-column">
+
+            <h2>Job Information</h2>
+
+            <label>Job Profile</label>
+            <select id="jobSelect"></select>
+
+            <label>Job Level</label>
+            <input id="jobLevel" type="text" readonly>
+
+            <label>Midpoint (EUR)</label>
+            <input id="midpoint" type="text" readonly>
+
+            <label>Bonus Percentage</label>
+            <input id="bonusPercent" type="text" readonly>
+
+
+            <h2>Benchmark</h2>
+
+            <label>Benchmark Market</label>
+            <select id="benchmarkSelect">
+                <option>West Europe Tech</option>
+                <option>West Europe Non-Tech</option>
+                <option>Mid Europe Tech</option>
+                <option>Mid Europe Non-Tech</option>
+                <option>USA</option>
+                <option>India</option>
+            </select>
+
+            <label>Percentile</label>
+            <select id="percentileSelect">
+                <option>25th percentile</option>
+                <option>50th percentile</option>
+                <option>75th percentile</option>
+                <option>90th percentile</option>
+            </select>
+
+
+            <h2>RSU Grant</h2>
+
+            <label>Current Stock Price (EUR)</label>
+            <input id="stockPrice" type="number" value="50">
+
+            <label>RSU Grant Value (EUR)</label>
+            <input id="rsuValue" type="number" value="0">
+
+            <label>Number of RSUs</label>
+            <input id="rsuUnits" type="text" readonly>
+
+
+            <h2>Hiring Notes</h2>
+            <textarea id="hiringNotes" placeholder="Add notes..."></textarea>
+
+            <button id="exportPDF">Export Summary as PDF</button>
+
+        </div>
+
+        <!-- RIGHT SIDE: OUTPUT -->
+        <div class="right-column">
+
+            <h2>Compensation Summary</h2>
+            <div id="compSummary"></div>
+
+            <h2>Cost of Employment</h2>
+            <div id="costSummary"></div>
+
+            <h2>Recommended Range Based on Benchmarks</h2>
+            <div id="rangeSummary"></div>
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
 </html>
